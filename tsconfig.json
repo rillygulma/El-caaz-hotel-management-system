@@ -1,27 +1,35 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
+    "types": ["node"], // Ensures Node.js types are included
+    "moduleResolution": "node", // Resolves modules in Node.js style
+    "target": "ES2017", // Targets ES2017 for async/await compatibility
+    "lib": ["dom", "dom.iterable", "esnext"], // Supports modern JavaScript and DOM APIs
+    "allowJs": true, // Allows JavaScript files in the project
+    "skipLibCheck": true, // Skips type checking for library files
+    "strict": true, 
+    "noEmit": true, // Prevents emitting output files
+    "esModuleInterop": true, // Enables interoperability between CommonJS and ES modules
+    "module": "esnext", // Uses ES module syntax
+    "resolveJsonModule": true, // Enables importing JSON files as modules
+    "isolatedModules": true, // Ensures compatibility with Next.js's build system
+    "jsx": "preserve", // Preserves JSX syntax for compilation
+    "incremental": true, // Speeds up builds by enabling incremental compilation
+    "paths": {
+      "@/*": ["src/*"] // Alias for `src` directory
+    },
     "plugins": [
       {
-        "name": "next"
+        "name": "next" // Enables Next.js-specific TypeScript tooling
       }
-    ],
-    "paths": {
-      "@/*": ["src/*"]
-    }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts", // Ensures Next.js environment types are included
+    "**/*.ts", // Includes TypeScript files
+    "**/*.tsx", // Includes TypeScript files with JSX
+    ".next/types/**/*.ts" // Includes generated types from Next.js
+  ],
+  "exclude": [
+    "node_modules" // Excludes `node_modules` directory
+  ]
 }
