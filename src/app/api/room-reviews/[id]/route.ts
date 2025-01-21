@@ -1,9 +1,10 @@
 import { getRoomReviews } from '@/libs/apis';
-import { NextResponse } from 'next/server';
+import { NextResponse, NextRequest } from 'next/server';
 
-export async function GET(
+export const GET = async (
+  req: NextRequest,
   { params }: { params: { id: string } }
-): Promise<NextResponse> {
+): Promise<NextResponse> => {
   const roomId = params.id;
 
   try {
@@ -20,4 +21,4 @@ export async function GET(
       { status: 400 }
     );
   }
-}
+};
