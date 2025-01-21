@@ -2,10 +2,18 @@ import { getRoomReviews } from '@/libs/apis';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
+// Define the type for the params in the context
+type ContextParams = {
+  params: {
+    id: string; // The "id" must be a string
+  };
+};
+
+// The GET function is explicitly typed
 export async function GET(
   req: NextRequest,
-  context: { params: { id: string } } // Ensure the context type matches the expected structure
-) {
+  context: ContextParams
+): Promise<NextResponse> {
   const { id: roomId } = context.params;
 
   try {
