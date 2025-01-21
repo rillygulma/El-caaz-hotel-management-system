@@ -1,10 +1,10 @@
 import { getRoomReviews } from '@/libs/apis';
-import { NextResponse, NextRequest } from 'next/server';
+import { NextResponse } from 'next/server';
 
-export const GET = async (
-  req: NextRequest,
+export async function GET(
+  req: Request,
   { params }: { params: { id: string } }
-): Promise<NextResponse> => {
+) {
   const roomId = params.id;
 
   try {
@@ -12,13 +12,10 @@ export const GET = async (
 
     return NextResponse.json(roomReviews, {
       status: 200,
-      statusText: 'Successful',
+      statusText: 'Succesful',
     });
   } catch (error) {
-    console.error('Getting Review Failed', error);
-    return NextResponse.json(
-      { error: 'Unable to fetch reviews' },
-      { status: 400 }
-    );
+    console.log('Getting Review Failed', error);
+    return new NextResponse('Unable to fetch', { status: 400 });
   }
-};
+}
