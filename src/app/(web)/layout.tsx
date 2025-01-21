@@ -1,4 +1,4 @@
-import type  Metadata from "next";
+import type { Metadata } from "next"; // Correctly import Metadata as a type
 import { Poppins as PoppinsFont } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
@@ -14,7 +14,7 @@ const poppins = PoppinsFont({
   variable: "--font-poppins",
 });
 
-export const metadata: Metadata = {
+export const metadata: Metadata = { // Correctly use Metadata as a type
   title: "El-Caaz Farms and Resorts",
   description:
     "El-Caaz Farms and Resorts is a serene getaway destination that combines the charm of a lush agricultural setting with the comforts of a modern resort. Nestled in a picturesque location, it offers visitors an opportunity to experience farm life, enjoy fresh organic produce, and relax in well-appointed accommodations. With a variety of recreational activities, nature trails, and farm-to-table dining, El-Caaz is perfect for families, couples, and individuals seeking a unique blend of relaxation, adventure, and sustainability.",
@@ -28,8 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
-        crossOrigin="anonymous"
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+          crossOrigin="anonymous"
         />
       </head>
       <body className={poppins.variable}>
